@@ -22,9 +22,10 @@
         const workbook = XLSX.read(data, {type: 'array'});
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
-        const json = XLSX.utils.sheet_to_json(worksheet);
-        console.log(json); 
-       
+        let json = XLSX.utils.sheet_to_json(worksheet);
+        const resultado = { "contatos": json };
+
+        console.log(resultado); 
       };
       reader.readAsArrayBuffer(event.target.files[0]);
     }, false);
